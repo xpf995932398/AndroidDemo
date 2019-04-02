@@ -68,19 +68,8 @@ public class ButterknfieProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-        //编译时，将获取所有的BindView
-        Set<? extends Element> elements = roundEnvironment.getElementsAnnotatedWith(BindView.class);
         //根据对应的activity分开,将BindView进行分类
-        Map<Element, List<Element>> elementMap = new LinkedHashMap<>();
-        for (Element element : elements) {
-            Element enclosingElement = element.getEnclosingElement();
-            List<Element> list = elementMap.get(enclosingElement);
-            if (list == null) {
-                list = new ArrayList<>();
-                elementMap.put(enclosingElement, list);
-            }
-            list.add(element);
-        }
+        Map<Element, List<Element>> elementMap = getElements(roundEnvironment, BindView.class);
         //生成java文件
         for (Map.Entry<Element, List<Element>> entry : elementMap.entrySet()) {
             Element element = entry.getKey();
@@ -94,11 +83,13 @@ public class ButterknfieProcessor extends AbstractProcessor {
                     .addSuperinterface(unbinderName)//添加需要实现的接口
                     .addField(fieldClassName, "target", Modifier.PRIVATE);//添加参数
 
+            /* 上述这段代码 主要生成：public final class XXXXViewBinding implements Unbinder 和参数：private XXXX target;*/
+
+
             //添加构造函数
             MethodSpec.Builder constructor = MethodSpec.constructorBuilder()
-                    .addParameter(fieldClassName, "target");
+                    .addParameter(fieldClassName, "target");//添加构造函数入参
             constructor.addStatement("this.target=target");
-
 
             //实现接口的回调方法
             ClassName callSuper = ClassName.get("android.support.annotation", "CallSuper");
@@ -137,5 +128,28 @@ public class ButterknfieProcessor extends AbstractProcessor {
             }
         }
         return false;
+    }
+
+    /**
+     * 获取类中所有包含class的集合
+     *
+     * @param roundEnvironment RoundEnvironment
+     * @param var1             注解类
+     * @return Set
+     */
+    private Map<Element, List<Element>> getElements(RoundEnvironment roundEnvironment, Class<? extends Annotation> var1) {
+        Set<? extends Element> elements = roundEnvironment.getElementsAnnotatedWith(var1);
+        Map<Element, List<Element>> elementMap = new LinkedHashMap<>();
+        //根据对应的activity分开,将BindView进行分类
+        for (Element element : elements) {
+            Element enclosingElement = element.getEnclosingElement();//获取对应的activity类
+            List<Element> list = elementMap.get(enclosingElement);
+            if (list == null) {
+                list = new ArrayList<>();
+                elementMap.put(enclosingElement, list);
+            }
+            list.add(element);
+        }
+        return elementMap;
     }
 }
