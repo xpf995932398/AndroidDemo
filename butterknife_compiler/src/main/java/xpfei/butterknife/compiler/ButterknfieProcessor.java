@@ -88,6 +88,7 @@ public class ButterknfieProcessor extends AbstractProcessor {
 
             //添加构造函数
             MethodSpec.Builder constructor = MethodSpec.constructorBuilder()
+                    .addModifiers(Modifier.PUBLIC)//注意： 构造函数一定要加这个修饰符，要不然报错
                     .addParameter(fieldClassName, "target");//添加构造函数入参
             constructor.addStatement("this.target=target");
 
@@ -108,6 +109,7 @@ public class ButterknfieProcessor extends AbstractProcessor {
                 ClassName utils = ClassName.get("xpfei.butterknife", "Utils");
                 //获取使用注解BindView中的控件id
                 int viewId = element1.getAnnotation(BindView.class).value();
+                System.out.println("---->" + viewId);
                 constructor.addStatement("target.$L=$L.findViewById(target,$L)", field, utils, viewId);
                 unBinder.addStatement("target.$L = null", field);
             }
