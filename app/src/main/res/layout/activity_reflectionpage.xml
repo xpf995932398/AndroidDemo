@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+
+    <data>
+
+        <variable
+            name="OnMyClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/mToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/design_default_color_primary"
+            app:navigationContentDescription="返回"
+            app:navigationIcon="@mipmap/icon_back">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:singleLine="true"
+                android:text="反射"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btnObject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{OnMyClickListener}"
+                android:text="获取对象"
+                android:textColor="@android:color/white" />
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btnMethod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{OnMyClickListener}"
+                android:text="获取方法"
+                android:textColor="@android:color/white" />
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btnField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{OnMyClickListener}"
+                android:text="获取属性"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:gravity="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

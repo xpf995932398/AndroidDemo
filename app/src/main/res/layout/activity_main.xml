@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+
+    <data>
+
+        <variable
+            name="OnHomeClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/design_default_color_primary">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:singleLine="true"
+                android:text="首页"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btnAop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{OnHomeClickListener}"
+                android:text="AOP"
+                android:textColor="@android:color/white" />
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btnReflection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{OnHomeClickListener}"
+                android:text="反射"
+                android:textColor="@android:color/white" />
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btnAnnotation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{OnHomeClickListener}"
+                android:text="注解"
+                android:textColor="@android:color/white" />
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btnBuildAnnotation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{OnHomeClickListener}"
+                android:text="编译时注解"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
