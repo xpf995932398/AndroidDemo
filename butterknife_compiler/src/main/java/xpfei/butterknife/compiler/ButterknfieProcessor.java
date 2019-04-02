@@ -111,6 +111,8 @@ public class ButterknfieProcessor extends AbstractProcessor {
                 constructor.addStatement("target.$L=$L.findViewById(target,$L)", field, utils, viewId);
                 unBinder.addStatement("target.$L = null", field);
             }
+
+
             //将创建的方法添加到类中
             classBuilder.addMethod(constructor.build());
             classBuilder.addMethod(unBinder.build());
