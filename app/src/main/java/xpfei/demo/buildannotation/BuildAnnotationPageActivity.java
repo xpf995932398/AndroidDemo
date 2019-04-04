@@ -1,4 +1,4 @@
-package xpfei.demo.BuildAnnotation;
+package xpfei.demo.buildannotation;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

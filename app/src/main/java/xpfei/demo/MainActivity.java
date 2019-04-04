@@ -2,14 +2,15 @@ package xpfei.demo;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import xpfei.demo.BuildAnnotation.BuildAnnotationPageActivity;
 import xpfei.demo.annotation.AnnotationPageActivity;
 import xpfei.demo.aop.AopPageActivity;
+import xpfei.demo.buildannotation.BuildAnnotationPageActivity;
 import xpfei.demo.databinding.ActivityMainBinding;
 import xpfei.demo.reflection.ReflectionPageActivity;
+import xpfei.demo.singleton.SingletonPageActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btnBuildAnnotation:
                     startActivity(new Intent(this, BuildAnnotationPageActivity.class));
+                    break;
+                case R.id.btnSingleton:
+                    startActivity(new Intent(this, SingletonPageActivity.class));
                     break;
                 default:
             }

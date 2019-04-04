@@ -11,8 +11,8 @@ import java.lang.reflect.Field;
  * @author xpfei
  * @date 2019/3/27
  */
-class ViewUtil {
-    static void initView(Activity activity) {
+public class ViewUtil {
+    public static void initView(Activity activity) {
         //获取activity中所有的属性
         Field[] fields = activity.getClass().getDeclaredFields();
         for (Field field : fields) {

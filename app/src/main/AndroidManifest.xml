@@ -22,7 +22,8 @@
         <activity android:name=".aop.AopPageActivity" />
         <activity android:name=".reflection.ReflectionPageActivity" />
         <activity android:name=".annotation.AnnotationPageActivity" />
-        <activity android:name=".BuildAnnotation.BuildAnnotationPageActivity" />
+        <activity android:name=".buildannotation.BuildAnnotationPageActivity" />
+        <activity android:name=".singleton.SingletonPageActivity" />
     </application>
 
 </manifest>
