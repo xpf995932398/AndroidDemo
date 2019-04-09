@@ -3,10 +3,8 @@ package xpfei.demo.singleton;
 import android.annotation.SuppressLint;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import xpfei.demo.R;
 import xpfei.demo.databinding.ActivitySingletopageBinding;
@@ -30,6 +28,7 @@ public class SingletonPageActivity extends AppCompatActivity {
         binding.mToolbar.setNavigationOnClickListener(v -> finish());
     }
 
+    /*  演示volatile关键字的案例，可以删除volatile和加上volatile 跑一下 看看结果  */
     public static void main(String args[]) {
         Test test = new Test();
         new Thread(test).start();

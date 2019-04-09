@@ -15,8 +15,8 @@ public class SingletonUtil1 {
 
     /**
      * volatile:1 防止重排序
-     *          2 线程可见性-某个线程修改了公用对象，短时间内，另一个线程肯能是不可见，由于没个线程都有自己的
-     *            工作区
+     * 2 线程可见性-某个线程修改了公用对象，短时间内，另一个线程肯能是不可见，由于没个线程都有自己的
+     * 工作区
      */
     private static volatile SingletonUtil1 mInstance;
 
@@ -45,7 +45,6 @@ public class SingletonUtil1 {
 
     /*
      *即保证了线程安全，也提高了效率
-     * 问题：
      */
 //    public static SingletonUtil1 getInstance() {
 //        if (mInstance == null) {
