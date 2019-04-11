@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import xpfei.demo.annotation.AnnotationPageActivity;
 import xpfei.demo.aop.AopPageActivity;
+import xpfei.demo.build.BuildDesignPatternsPageActivity;
 import xpfei.demo.buildannotation.BuildAnnotationPageActivity;
 import xpfei.demo.databinding.ActivityMainBinding;
 import xpfei.demo.reflection.ReflectionPageActivity;
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btnSingleton:
                     startActivity(new Intent(this, SingletonPageActivity.class));
+                    break;
+                case R.id.btnBuilder:
+                    startActivity(new Intent(this, BuildDesignPatternsPageActivity.class));
                     break;
                 default:
             }

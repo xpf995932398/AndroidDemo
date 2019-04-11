@@ -79,6 +79,15 @@
                 android:text="单例模式"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btnBuilder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{OnHomeClickListener}"
+                android:text="Builder模式"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
     </LinearLayout>

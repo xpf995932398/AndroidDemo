@@ -24,6 +24,7 @@
         <activity android:name=".annotation.AnnotationPageActivity" />
         <activity android:name=".buildannotation.BuildAnnotationPageActivity" />
         <activity android:name=".singleton.SingletonPageActivity" />
+        <activity android:name=".build.BuildDesignPatternsPageActivity" />
     </application>
 
 </manifest>

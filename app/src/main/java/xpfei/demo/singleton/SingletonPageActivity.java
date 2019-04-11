@@ -10,7 +10,7 @@ import xpfei.demo.R;
 import xpfei.demo.databinding.ActivitySingletopageBinding;
 
 /**
- * Description: TODO
+ * Description: 单例设计模式
  * 通常套路：
  * 1.构造函数私有，防止外部调用
  * 2.内部必须提供静态的方法让外部调用
