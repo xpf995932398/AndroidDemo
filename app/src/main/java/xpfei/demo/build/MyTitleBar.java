@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import xpfei.demo.R;
 
-class MyTitleBar {
+public class MyTitleBar {
     private String value;
     private int layoutId;
     private View.OnClickListener onLeftClickListener;
@@ -57,74 +57,74 @@ class MyTitleBar {
     }
 
     @SuppressWarnings("SameParameterValue")
-    static class Builder {
+    public static class Builder {
         int titleId = R.id.tvTitle, leftId = R.id.llLeft, rightId = R.id.tvRight;
         String value = "未知";
         int layoutId = R.layout.view_defulttitlebar;
         View.OnClickListener onLeftClickListener;
         boolean isRightShow = false;
-        String rightTxt="点击我";
+        String rightTxt = "点击我";
         View.OnClickListener onRightClickListener;
         Context mContext;
         ViewGroup viewGroup;
 
-        Builder(Context mContext, ViewGroup viewGroup) {
+        public Builder(Context mContext, ViewGroup viewGroup) {
             this.mContext = mContext;
             this.viewGroup = viewGroup;
         }
 
-        Builder setLayoutId(int layoutId) {
+        public Builder setLayoutId(int layoutId) {
             if (layoutId > 0) {
                 this.layoutId = layoutId;
             }
             return this;
         }
 
-        Builder setTitle(String value) {
+        public Builder setTitle(String value) {
             this.value = value;
             return this;
         }
 
-        Builder setTitle(int id, String value) {
+        public Builder setTitle(int id, String value) {
             this.titleId = id;
             this.value = value;
             return this;
         }
 
-        Builder setOnLeftClickListener(View.OnClickListener onLeftClickListener) {
+        public Builder setOnLeftClickListener(View.OnClickListener onLeftClickListener) {
             this.onLeftClickListener = onLeftClickListener;
             return this;
         }
 
-        Builder setOnLeftClickListener(int id, View.OnClickListener onLeftClickListener) {
+        public Builder setOnLeftClickListener(int id, View.OnClickListener onLeftClickListener) {
             this.leftId = id;
             this.onLeftClickListener = onLeftClickListener;
             return this;
         }
 
-        Builder setRightShow(boolean rightShow) {
+        public Builder setRightShow(boolean rightShow) {
             isRightShow = rightShow;
             return this;
         }
 
-        Builder setRightShow(int id, boolean rightShow) {
+        public Builder setRightShow(int id, boolean rightShow) {
             this.rightId = id;
             isRightShow = rightShow;
             return this;
         }
 
-        Builder setRightTxt(String rightTxt) {
+        public Builder setRightTxt(String rightTxt) {
             this.rightTxt = rightTxt;
             return this;
         }
 
-        Builder setOnRightClickListener(View.OnClickListener onRightClickListener) {
+        public Builder setOnRightClickListener(View.OnClickListener onRightClickListener) {
             this.rightId = R.id.tvRight;
             this.onRightClickListener = onRightClickListener;
             return this;
         }
 
-        void create() {
+        public void create() {
             new MyTitleBar(this);
         }
     }
