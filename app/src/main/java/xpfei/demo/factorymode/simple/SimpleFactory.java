@@ -1,24 +1,24 @@
 package xpfei.demo.factorymode.simple;
 
-import android.content.Context;
-
 /**
- * Description: 简单工厂模式-获取对象
- *
  * @author xpfei
  * @date 2019/4/16
  */
 public class SimpleFactory {
     public enum SimpleType {
-        Acache
+        SQL, FILE, SP
     }
 
-    public static ISimple createSimpleFactory(SimpleType type, Context context) {
+    public static IProduct createSimpleFactory(SimpleType type) {
         switch (type) {
-            case Acache:
-                return new SimpleAcacheInterface(context);
+            case SQL:
+                return new SqlProduct();
+            case FILE:
+                return new FileProduct();
+            case SP:
+                return new SpProduct();
             default:
-                return new SimpleAcacheInterface(context);
+                return new SpProduct();
         }
     }
 }

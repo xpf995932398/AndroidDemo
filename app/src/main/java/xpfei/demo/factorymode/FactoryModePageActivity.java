@@ -8,11 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import xpfei.demo.R;
 import xpfei.demo.build.MyTitleBar;
 import xpfei.demo.databinding.AvtivityFactorymodeBinding;
+import xpfei.demo.factorymode.abstractfactory.AFactory;
+import xpfei.demo.factorymode.abstractfactory.BFactory;
+import xpfei.demo.factorymode.abstractfactory.CFactory;
 import xpfei.demo.factorymode.abstractfactory.FactoryManager;
-import xpfei.demo.factorymode.method.MethodAcacheFactory;
+import xpfei.demo.factorymode.method.FileFactory;
+import xpfei.demo.factorymode.method.MeFactoryManager;
+import xpfei.demo.factorymode.method.SpFactory;
+import xpfei.demo.factorymode.method.SqlFactory;
 import xpfei.demo.factorymode.simple.SimpleFactory;
-
-import static xpfei.demo.factorymode.simple.SimpleFactory.SimpleType.Acache;
 
 /**
  * Description: 工厂模式
@@ -29,14 +33,34 @@ public class FactoryModePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         AvtivityFactorymodeBinding binding = DataBindingUtil.setContentView(this, R.layout.avtivity_factorymode);
         new MyTitleBar.Builder(this, binding.root).setTitle("工厂模式").create();
-        //简单工厂模式
-        SimpleFactory.createSimpleFactory(Acache, this).save("", "");
-        SimpleFactory.createSimpleFactory(Acache, this).getValue("");
-        //工厂方法模式
-        new MethodAcacheFactory().createIMethod(this).save("", "");
-        new MethodAcacheFactory().createIMethod(this).getValue("");
-        //抽象工厂模式
-        FactoryManager.getInstance().getAcache(this).save("", "");
-        FactoryManager.getInstance().getAcache(this).getValue("");
+
+        /*
+         *简单工厂模式:一个抽象产品类，可以派生出多个具体产品类。
+         *             一个具体工厂类，通过往此工厂的static方法中传入不同参数，
+         *             产出不同的具体产品类实例
+         */
+        SimpleFactory.createSimpleFactory(SimpleFactory.SimpleType.FILE).add();
+        SimpleFactory.createSimpleFactory(SimpleFactory.SimpleType.SQL).add();
+        SimpleFactory.createSimpleFactory(SimpleFactory.SimpleType.SP).add();
+        /*
+         * 工厂方法模式:一个抽象产品类，可以派生出多个具体产品类。
+         *              一个抽象工厂类，可以派生出多个具体工厂类。
+         *              每个具体工厂类只能创建一个具体产品类的实例
+         */
+        MeFactoryManager.getFactory(FileFactory.class).createProduct().add();
+        MeFactoryManager.getFactory(SpFactory.class).createProduct().add();
+        MeFactoryManager.getFactory(SqlFactory.class).createProduct().add();
+
+        /*
+         *抽象工厂模式:多个抽象产品类，每个抽象产品类可以派生出多个具体产品类。
+         *             一个抽象工厂类，可以派生出多个具体工厂类。
+         *             每个具体工厂类可以创建多个具体产品类的实例
+         */
+        FactoryManager.getFactory(AFactory.class).createProductA().add();
+        FactoryManager.getFactory(AFactory.class).createProductB().update();
+        FactoryManager.getFactory(BFactory.class).createProductA().del();
+        FactoryManager.getFactory(BFactory.class).createProductB().get();
+        FactoryManager.getFactory(CFactory.class).createProductA().del();
+        FactoryManager.getFactory(CFactory.class).createProductB().get();
     }
 }

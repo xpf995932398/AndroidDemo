@@ -1,13 +1,7 @@
-package xpfei.demo.factorymode.abstractfactory;
+package xpfei.demo.factorymode.method;
 
-/**
- * Description:
- *
- * @author xpfei
- * @date 2019/4/16
- */
-public class FactoryManager {
-    private FactoryManager() {
+public class MeFactoryManager {
+    private MeFactoryManager() {
     }
 
 
@@ -19,6 +13,6 @@ public class FactoryManager {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
-        return new AFactory();
+        return new SpFactory();
     }
 }
