@@ -19,6 +19,6 @@ public class FactoryManager {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
-        return new AFactory();
+        return new FileFactory();
     }
 }

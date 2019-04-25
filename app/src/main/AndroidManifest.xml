@@ -26,6 +26,7 @@
         <activity android:name=".singleton.SingletonPageActivity" />
         <activity android:name=".build.BuildDesignPatternsPageActivity" />
         <activity android:name=".factorymode.FactoryModePageActivity" />
+        <activity android:name=".decorator.DecoratorPageActivity" />
     </application>
 
 </manifest>

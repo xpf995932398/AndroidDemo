@@ -1,9 +1,9 @@
 package xpfei.demo.factorymode.abstractfactory;
 
-public class CFactory implements IFactory {
+public class FileFactory implements IFactory {
     @Override
     public IProductA createProductA() {
-        return new SpAProduct();
+        return new FileAProduct();
     }
 
     @Override
