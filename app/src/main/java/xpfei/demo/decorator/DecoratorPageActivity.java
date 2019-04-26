@@ -10,7 +10,7 @@ import xpfei.demo.build.MyTitleBar;
 import xpfei.demo.databinding.AvtivityDecoratorBinding;
 
 /**
- * Description: TODO
+ * Description: 装饰设计模式
  *
  * @author xpfei
  * @date 2019/4/25
@@ -21,5 +21,10 @@ public class DecoratorPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         AvtivityDecoratorBinding binding = DataBindingUtil.setContentView(this, R.layout.avtivity_decorator);
         new MyTitleBar.Builder(this, binding.root).setTitle("装饰模式").create();
+        AndroidProgrammer programmer = new AndroidProgrammer();
+        AdvancedAndroidProgrammer advancedAndroidProgrammer = new AdvancedAndroidProgrammer();
+        advancedAndroidProgrammer.setProgrammer(programmer);
+        programmer.writeCode();
+        advancedAndroidProgrammer.writeCode();
     }
 }
