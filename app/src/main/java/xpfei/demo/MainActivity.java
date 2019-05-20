@@ -12,6 +12,7 @@ import xpfei.demo.buildannotation.BuildAnnotationPageActivity;
 import xpfei.demo.databinding.ActivityMainBinding;
 import xpfei.demo.decorator.DecoratorPageActivity;
 import xpfei.demo.factorymode.FactoryModePageActivity;
+import xpfei.demo.observable.ObserverMainActivity;
 import xpfei.demo.reflection.ReflectionPageActivity;
 import xpfei.demo.singleton.SingletonPageActivity;
 
@@ -46,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btnDecorator:
                     startActivity(new Intent(this, DecoratorPageActivity.class));
+                    break;
+                case R.id.btnObserver:
+                    startActivity(new Intent(this, ObserverMainActivity.class));
                     break;
                 default:
             }

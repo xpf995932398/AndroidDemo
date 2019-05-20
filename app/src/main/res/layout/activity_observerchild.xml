@@ -1,45 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
+        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/mToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/design_default_color_primary"
-            app:navigationContentDescription="返回"
-            app:navigationIcon="@mipmap/icon_back"
-            app:title="单例模式">
-
-        </android.support.v7.widget.Toolbar>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:orientation="vertical">
 
             <android.support.design.button.MaterialButton
-                android:id="@+id/btnTest"
+                android:id="@+id/btnStart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:text="开始"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
+                android:text="更新"
                 tools:ignore="HardcodedText" />
 
-            <TextView
-                android:id="@+id/tvContent"
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btnUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp" />
+                android:text="更新"
+                tools:ignore="HardcodedText" />
         </LinearLayout>
     </LinearLayout>
 </layout>

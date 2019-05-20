@@ -106,6 +106,15 @@
                 android:text="装饰模式"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btnObserver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{OnHomeClickListener}"
+                android:text="观察者模式"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
     </LinearLayout>

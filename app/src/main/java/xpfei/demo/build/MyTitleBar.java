@@ -102,7 +102,7 @@ public class MyTitleBar {
             return this;
         }
 
-        public Builder setRightShow(boolean rightShow) {
+        Builder setRightShow(boolean rightShow) {
             isRightShow = rightShow;
             return this;
         }
@@ -118,8 +118,7 @@ public class MyTitleBar {
             return this;
         }
 
-        public Builder setOnRightClickListener(View.OnClickListener onRightClickListener) {
-            this.rightId = R.id.tvRight;
+        Builder setOnRightClickListener(View.OnClickListener onRightClickListener) {
             this.onRightClickListener = onRightClickListener;
             return this;
         }

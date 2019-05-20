@@ -27,6 +27,8 @@
         <activity android:name=".build.BuildDesignPatternsPageActivity" />
         <activity android:name=".factorymode.FactoryModePageActivity" />
         <activity android:name=".decorator.DecoratorPageActivity" />
+        <activity android:name=".observable.ObserverMainActivity" />
+        <activity android:name=".observable.ObserverChildActivity" />
     </application>
 
 </manifest>
